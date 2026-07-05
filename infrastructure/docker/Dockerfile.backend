@@ -1,0 +1,40 @@
+# Build stage
+FROM node:20-alpine AS builder
+
+WORKDIR /app
+
+# Copy root package files
+COPY package*.json ./
+COPY tsconfig.json ./
+
+# Copy backend app
+COPY apps/backend ./apps/backend
+
+# Copy shared packages
+COPY packages/shared ./packages/shared
+
+# Install dependencies
+RUN npm install
+
+# Build backend
+RUN npm run build:backend
+
+# Runtime stage
+FROM node:20-alpine
+
+WORKDIR /app
+
+ENV NODE_ENV=production
+
+# Copy root package files
+COPY package*.json ./
+
+# Copy backend build output
+COPY --from=builder /app/apps/backend/dist ./dist
+
+# Install production dependencies only
+RUN npm install --production
+
+EXPOSE 3000
+
+CMD ["node", "dist/main.js"]

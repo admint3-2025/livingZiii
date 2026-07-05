@@ -1,0 +1,83 @@
+version: '3.8'
+
+services:
+  # PostgreSQL Database
+  postgres:
+    image: postgres:16-alpine
+    container_name: ziii_postgres
+    environment:
+      POSTGRES_USER: ${DATABASE_USER:-ziii_user}
+      POSTGRES_PASSWORD: ${DATABASE_PASSWORD:-ziii_password_dev}
+      POSTGRES_DB: ${DATABASE_NAME:-ziii_living_dev}
+    ports:
+      - '5432:5432'
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+    healthcheck:
+      test: ['CMD-SHELL', 'pg_isready -U ziii_user -d ziii_living_dev']
+      interval: 10s
+      timeout: 5s
+      retries: 5
+    networks:
+      - ziii-network
+
+  # Redis (Optional — for caching, sessions, queue)
+  redis:
+    image: redis:7-alpine
+    container_name: ziii_redis
+    ports:
+      - '6379:6379'
+    healthcheck:
+      test: ['CMD', 'redis-cli', 'ping']
+      interval: 10s
+      timeout: 5s
+      retries: 5
+    networks:
+      - ziii-network
+
+  # Backend API (built from dockerfile)
+  backend:
+    build:
+      context: ../../
+      dockerfile: infrastructure/docker/Dockerfile.backend
+    container_name: ziii_backend
+    environment:
+      NODE_ENV: development
+      API_PORT: 3000
+      DATABASE_HOST: postgres
+      DATABASE_PORT: 5432
+      DATABASE_USER: ${DATABASE_USER:-ziii_user}
+      DATABASE_PASSWORD: ${DATABASE_PASSWORD:-ziii_password_dev}
+      DATABASE_NAME: ${DATABASE_NAME:-ziii_living_dev}
+      JWT_SECRET: ${JWT_SECRET:-dev-secret-key}
+      REDIS_URL: redis://redis:6379
+    ports:
+      - '3000:3000'
+    depends_on:
+      postgres:
+        condition: service_healthy
+      redis:
+        condition: service_healthy
+    volumes:
+      - ../../apps/backend/src:/app/src
+    networks:
+      - ziii-network
+
+  # (Optional) Adminer for database management UI
+  adminer:
+    image: adminer:latest
+    container_name: ziii_adminer
+    ports:
+      - '8080:8080'
+    depends_on:
+      - postgres
+    networks:
+      - ziii-network
+
+volumes:
+  postgres_data:
+    driver: local
+
+networks:
+  ziii-network:
+    driver: bridge

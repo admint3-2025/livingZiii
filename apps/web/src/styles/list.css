@@ -1,0 +1,163 @@
+/* List Pages Styles */
+
+.page {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.pageHeader {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  flex-wrap: wrap;
+  gap: 14px;
+}
+
+.pageTitle {
+  font-size: 26px;
+  font-weight: 900;
+  letter-spacing: -0.02em;
+  margin: 0;
+}
+
+.pageSubtitle {
+  margin-top: 6px;
+  color: var(--text-muted);
+  font-size: 13px;
+  max-width: 80ch;
+}
+
+.pageActions {
+  display: flex;
+  gap: 10px;
+  align-items: center;
+}
+
+.panel {
+  border-radius: 16px;
+  border: 1px solid rgba(2, 6, 23, 0.10);
+  background: rgba(255, 255, 255, 0.82);
+  box-shadow: 0 24px 60px rgba(2, 6, 23, 0.08);
+  overflow: hidden;
+}
+
+.tableWrap {
+  overflow: auto;
+}
+
+table th {
+  position: sticky;
+  top: 0;
+  z-index: 1;
+}
+
+.cellStrong {
+  font-weight: 900;
+}
+
+.cellMuted {
+  color: rgba(2, 6, 23, 0.45);
+}
+
+.btnSmall {
+  padding: 8px 10px;
+  border-radius: 12px;
+  font-weight: 800;
+  font-size: 12px;
+}
+
+.emptyState {
+  border-radius: 18px;
+  border: 1px dashed rgba(2, 6, 23, 0.18);
+  background: rgba(255, 255, 255, 0.6);
+  padding: 26px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  align-items: flex-start;
+}
+
+.emptyTitle {
+  font-size: 16px;
+  font-weight: 900;
+}
+
+.emptyText {
+  font-size: 13px;
+  color: var(--text-muted);
+  max-width: 70ch;
+}
+
+/* Modal */
+.modalOverlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(2, 6, 23, 0.55);
+  backdrop-filter: blur(8px);
+  display: grid;
+  place-items: center;
+  padding: 20px;
+  z-index: 50;
+}
+
+.modal {
+  width: min(760px, 100%);
+  border-radius: 18px;
+  border: 1px solid rgba(255, 255, 255, 0.18);
+  background: rgba(255, 255, 255, 0.92);
+  box-shadow: 0 30px 90px rgba(2, 6, 23, 0.35);
+  overflow: hidden;
+}
+
+.modalHeader {
+  padding: 18px 18px;
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 12px;
+  border-bottom: 1px solid rgba(2, 6, 23, 0.08);
+}
+
+.modalTitle {
+  font-size: 16px;
+  font-weight: 900;
+}
+
+.modalSubtitle {
+  margin-top: 4px;
+  font-size: 12px;
+  color: var(--text-muted);
+}
+
+.modalBody {
+  padding: 18px;
+}
+
+.formRow {
+  display: grid;
+  gap: 12px;
+  margin-bottom: 12px;
+}
+
+.formRowTwo {
+  grid-template-columns: 1fr 1fr;
+}
+
+.modalFooter {
+  display: flex;
+  justify-content: flex-end;
+  gap: 10px;
+  padding-top: 6px;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .pageTitle {
+    font-size: 22px;
+  }
+
+  .formRowTwo {
+    grid-template-columns: 1fr;
+  }
+}

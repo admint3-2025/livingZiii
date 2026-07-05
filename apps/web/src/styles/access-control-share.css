@@ -1,0 +1,705 @@
+.shareShell {
+  min-height: 100vh;
+  background:
+    radial-gradient(circle at top left, rgba(14, 165, 233, 0.18), transparent 28%),
+    radial-gradient(circle at top right, rgba(13, 148, 136, 0.2), transparent 26%),
+    linear-gradient(180deg, #e9f4fa 0%, #f5f8fb 34%, #eef5fa 100%);
+  color: #123047;
+}
+
+.shareFrame {
+  width: min(1220px, calc(100% - 32px));
+  margin: 0 auto;
+  padding: 28px 0 42px;
+}
+
+.shareDialogOverlay {
+  position: fixed;
+  inset: 0;
+  z-index: 40;
+  display: grid;
+  place-items: center;
+  padding: 20px;
+  background: rgba(7, 20, 33, 0.42);
+  backdrop-filter: blur(8px);
+}
+
+.shareDialog {
+  width: min(480px, 100%);
+  border-radius: 28px;
+  padding: 24px;
+  background: rgba(255, 255, 255, 0.98);
+  border: 1px solid rgba(9, 30, 66, 0.1);
+  box-shadow: 0 30px 80px rgba(15, 23, 42, 0.22);
+}
+
+.shareDialogHeader {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 16px;
+}
+
+.shareDialogHeader h3 {
+  margin: 0;
+  font-size: 24px;
+  font-weight: 800;
+  color: #123047;
+}
+
+.shareDialogHeader p {
+  margin: 8px 0 0;
+  font-size: 14px;
+  line-height: 1.6;
+  color: rgba(18, 48, 71, 0.7);
+}
+
+.shareDialogClose {
+  width: 42px;
+  height: 42px;
+  border: 0;
+  border-radius: 14px;
+  background: #eef5fb;
+  color: #123047;
+  font-size: 18px;
+  font-weight: 800;
+  cursor: pointer;
+}
+
+.shareDialogField {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  margin-top: 22px;
+}
+
+.shareDialogField span {
+  font-size: 12px;
+  font-weight: 800;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: rgba(18, 48, 71, 0.7);
+}
+
+.shareDialogField input {
+  width: 100%;
+  min-height: 52px;
+  padding: 0 16px;
+  border-radius: 16px;
+  border: 1px solid rgba(18, 48, 71, 0.16);
+  background: #f8fbfe;
+  color: #123047;
+  font-size: 15px;
+  outline: none;
+}
+
+.shareDialogField input:focus {
+  border-color: rgba(14, 165, 233, 0.62);
+  box-shadow: 0 0 0 4px rgba(14, 165, 233, 0.14);
+}
+
+.shareDialogStatus {
+  margin-top: 14px;
+  padding: 10px 12px;
+  border-radius: 12px;
+  background: #edf7ff;
+  border: 1px solid #c8e6ff;
+  color: #123047;
+  font-size: 13px;
+  line-height: 1.5;
+}
+
+.shareDialogActions {
+  display: flex;
+  justify-content: flex-end;
+  gap: 12px;
+  margin-top: 24px;
+}
+
+.shareDialogButton {
+  min-width: 140px;
+}
+
+.shareTopbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 16px;
+  margin-bottom: 24px;
+}
+
+.shareBrand {
+  display: inline-flex;
+  align-items: center;
+  gap: 14px;
+  color: #0b2436;
+}
+
+.shareBrand img {
+  width: 120px;
+  height: auto;
+  display: block;
+}
+
+.shareBadge {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 10px 14px;
+  border-radius: 999px;
+  font-size: 12px;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  background: rgba(255, 255, 255, 0.74);
+  border: 1px solid rgba(11, 36, 54, 0.08);
+  color: rgba(11, 36, 54, 0.76);
+  box-shadow: 0 10px 30px rgba(15, 23, 42, 0.06);
+}
+
+.shareGrid {
+  display: grid;
+  grid-template-columns: 0.62fr 1.38fr;
+  gap: 28px;
+  align-items: stretch;
+}
+
+.shareHero,
+.sharePhone,
+.shareEmailPreview {
+  position: relative;
+  overflow: hidden;
+  border-radius: 34px;
+  background: rgba(255, 255, 255, 0.86);
+  border: 1px solid rgba(9, 30, 66, 0.08);
+  box-shadow: 0 28px 80px rgba(15, 23, 42, 0.13);
+  backdrop-filter: blur(12px);
+}
+
+.shareHero {
+  padding: 36px;
+}
+
+.shareHero::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background:
+    linear-gradient(140deg, rgba(8, 47, 73, 0.94) 0%, rgba(15, 118, 110, 0.88) 55%, rgba(14, 165, 233, 0.78) 100%);
+  z-index: 0;
+}
+
+.shareHeroContent {
+  position: relative;
+  z-index: 1;
+  color: #ffffff;
+}
+
+.shareEyebrow {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 8px 12px;
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.14);
+  font-size: 12px;
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+}
+
+.shareTitle {
+  margin-top: 18px;
+  font-size: clamp(2rem, 4vw, 3.1rem);
+  line-height: 1;
+  letter-spacing: -0.04em;
+  max-width: 8ch;
+}
+
+.shareSubtitle {
+  margin-top: 16px;
+  max-width: 28ch;
+  font-size: 15px;
+  line-height: 1.6;
+  color: rgba(255, 255, 255, 0.88);
+}
+
+.shareDetails {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 14px;
+  margin-top: 28px;
+}
+
+.shareDetailCard {
+  border-radius: 22px;
+  padding: 14px 16px;
+  background: rgba(255, 255, 255, 0.14);
+  border: 1px solid rgba(255, 255, 255, 0.16);
+  min-height: 108px;
+}
+
+.shareDetailLabel {
+  font-size: 11px;
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  color: rgba(255, 255, 255, 0.64);
+  margin-bottom: 8px;
+}
+
+.shareDetailValue {
+  font-size: 15px;
+  line-height: 1.4;
+  font-weight: 600;
+  overflow-wrap: anywhere;
+}
+
+.shareActionRow {
+  display: flex;
+  gap: 12px;
+  flex-wrap: wrap;
+  margin-top: 24px;
+}
+
+.shareActionPanel {
+  margin-top: 28px;
+  border-radius: 28px;
+  padding: 22px 22px 20px;
+  background: rgba(255, 255, 255, 0.14);
+  border: 1px solid rgba(255, 255, 255, 0.16);
+}
+
+.shareActionPanelTitle {
+  font-size: 18px;
+  font-weight: 800;
+  color: #ffffff;
+}
+
+.shareActionPanelText {
+  margin-top: 8px;
+  max-width: 36ch;
+  font-size: 13px;
+  line-height: 1.6;
+  color: rgba(244, 250, 255, 0.84);
+}
+
+.shareMainButton {
+  min-height: 48px;
+  padding: 12px 18px;
+  border-radius: 16px;
+  font-size: 14px;
+  font-weight: 700;
+}
+
+.shareInlineStatus {
+  margin-top: 16px;
+  padding: 12px 14px;
+  border-radius: 16px;
+  background: rgba(255, 255, 255, 0.14);
+  border: 1px solid rgba(255, 255, 255, 0.14);
+  font-size: 13px;
+  line-height: 1.6;
+  color: rgba(248, 252, 255, 0.92);
+}
+
+.shareQuickNote {
+  margin-top: 18px;
+  font-size: 12px;
+  line-height: 1.55;
+  color: rgba(239, 248, 255, 0.82);
+}
+
+.shareHero .btnGhost {
+  background: rgba(255, 255, 255, 0.14);
+  color: #ffffff;
+  border-color: rgba(255, 255, 255, 0.18);
+}
+
+.shareHero .btnGhost:hover {
+  background: rgba(255, 255, 255, 0.24);
+}
+
+.sharePhone {
+  padding: 16px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.sharePhoneFrame {
+  width: min(420px, 100%);
+  margin: 0 auto;
+  border-radius: 34px;
+  padding: 14px;
+  background: linear-gradient(180deg, #173042 0%, #0b2334 100%);
+  box-shadow: inset 0 0 0 1px rgba(255, 255, 255, 0.06);
+}
+
+.sharePhoneFrameWide {
+  width: min(640px, 100%);
+}
+
+.sharePhoneScreen {
+  border-radius: 26px;
+  padding: 18px 16px 16px;
+  min-height: 640px;
+  background:
+    radial-gradient(circle at top center, rgba(14, 165, 233, 0.16), transparent 34%),
+    linear-gradient(180deg, #f8fcff 0%, #eef5fb 100%);
+}
+
+.sharePhoneScreenWide {
+  min-height: 900px;
+}
+
+.sharePhoneHeader {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+}
+
+.sharePhoneHeader img {
+  width: 92px;
+  height: auto;
+}
+
+.sharePhoneTime {
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  color: rgba(18, 48, 71, 0.78);
+}
+
+.sharePassCard {
+  margin-top: 14px;
+  border-radius: 30px;
+  overflow: hidden;
+  background: #ffffff;
+  border: 1px solid rgba(9, 30, 66, 0.08);
+  box-shadow: 0 22px 48px rgba(15, 23, 42, 0.12);
+  aspect-ratio: 9 / 19;
+}
+
+.sharePassBanner {
+  padding: 18px 20px 16px;
+  background: linear-gradient(135deg, #082f49 0%, #0f766e 56%, #0ea5e9 100%);
+  color: #ffffff;
+}
+
+.sharePassBanner small {
+  display: block;
+  font-size: 12px;
+  font-weight: 800;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  opacity: 0.88;
+}
+
+.sharePassBanner h2 {
+  margin-top: 10px;
+  font-size: 28px;
+  font-weight: 800;
+  line-height: 1.05;
+  letter-spacing: -0.04em;
+}
+
+.sharePassBody {
+  padding: 22px;
+}
+
+.sharePassBodyWide {
+  padding: 14px 14px 18px;
+}
+
+.shareQrWrap {
+  display: grid;
+  place-items: center;
+  padding: 10px;
+  border-radius: 26px;
+  background: linear-gradient(180deg, #ffffff 0%, #f3f8fc 100%);
+  border: 1px solid rgba(9, 30, 66, 0.08);
+}
+
+.shareQrWrap img {
+  width: min(100%, 264px);
+  height: auto;
+  display: block;
+  border-radius: 24px;
+  background: #ffffff;
+  padding: 12px;
+}
+
+.shareQrWrapLarge {
+  padding: 10px;
+}
+
+.shareQrWrapLarge img {
+  width: 100%;
+  max-width: 520px;
+  padding: 10px;
+  border-radius: 16px;
+  image-rendering: pixelated;
+  image-rendering: crisp-edges;
+  box-shadow: 0 10px 22px rgba(15, 23, 42, 0.08);
+}
+
+.sharePassMetaWide {
+  grid-template-columns: 1.25fr 1fr 1fr;
+}
+
+.shareMetaTileFull {
+  grid-column: 1 / -1;
+}
+
+.shareQrEmpty {
+  font-size: 14px;
+  line-height: 1.7;
+  text-align: center;
+  color: rgba(18, 48, 71, 0.72);
+}
+
+.sharePassMeta {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 8px;
+  margin-top: 10px;
+}
+
+.shareMetaTile {
+  padding: 10px 11px;
+  border-radius: 16px;
+  background: #f2f7fb;
+}
+
+.shareMetaTile span {
+  display: block;
+  font-size: 11px;
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  color: rgba(18, 48, 71, 0.66);
+  margin-bottom: 7px;
+}
+
+.shareMetaTile strong {
+  display: block;
+  font-size: 14px;
+  line-height: 1.4;
+  font-weight: 800;
+  overflow-wrap: anywhere;
+}
+
+.shareHints {
+  margin-top: 18px;
+  padding: 18px;
+  border-radius: 24px;
+  background: #e9f7ff;
+  color: #123047;
+}
+
+.shareHints h3 {
+  font-size: 16px;
+  font-weight: 800;
+  margin-bottom: 8px;
+}
+
+.shareHints p {
+  font-size: 14px;
+  line-height: 1.55;
+  color: rgba(18, 48, 71, 0.92);
+}
+
+.shareHintsCompact {
+  margin-top: 16px;
+}
+
+.shareDeviceGuide {
+  margin-top: 12px;
+  display: grid;
+  grid-template-columns: 1fr 132px;
+  gap: 12px;
+  align-items: center;
+  padding: 12px 14px;
+  border-radius: 18px;
+  background: #eef5fb;
+}
+
+.shareDeviceGuideText {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+}
+
+.shareDeviceGuideText strong {
+  font-size: 14px;
+  font-weight: 800;
+  color: #123047;
+}
+
+.shareDeviceGuideText span {
+  font-size: 12px;
+  font-weight: 700;
+  line-height: 1.5;
+  color: rgba(18, 48, 71, 0.86);
+}
+
+.shareDeviceGuideArt {
+  display: grid;
+  place-items: center;
+  min-height: 132px;
+  padding: 6px;
+}
+
+.shareDeviceGuide img {
+  width: auto;
+  height: auto;
+  max-width: 100%;
+  max-height: 132px;
+  display: block;
+}
+
+.sharePreviewActions {
+  display: flex;
+  gap: 10px;
+  flex-wrap: wrap;
+  margin-top: 12px;
+}
+
+.shareEmailPreview {
+  margin-top: 24px;
+  padding: 26px;
+}
+
+.shareSectionHead {
+  display: flex;
+  justify-content: space-between;
+  align-items: end;
+  gap: 16px;
+  margin-bottom: 18px;
+}
+
+.shareSectionHead h3 {
+  font-size: 22px;
+  margin-bottom: 6px;
+}
+
+.shareSectionHead p {
+  color: rgba(18, 48, 71, 0.68);
+  line-height: 1.6;
+}
+
+.sharePreviewFrame {
+  min-height: 480px;
+  border-radius: 24px;
+  overflow: hidden;
+  background: #f1f5f9;
+  border: 1px solid rgba(9, 30, 66, 0.08);
+}
+
+.sharePreviewFrame iframe {
+  width: 100%;
+  min-height: 480px;
+  border: 0;
+  background: #ffffff;
+}
+
+.shareEmpty {
+  padding: 64px 24px;
+  text-align: center;
+  border-radius: 34px;
+  background: rgba(255, 255, 255, 0.8);
+  border: 1px solid rgba(9, 30, 66, 0.08);
+  box-shadow: 0 24px 60px rgba(15, 23, 42, 0.1);
+}
+
+.shareEmpty h2 {
+  font-size: 28px;
+  margin-bottom: 12px;
+}
+
+.shareEmpty p {
+  max-width: 54ch;
+  margin: 0 auto;
+  line-height: 1.7;
+  color: rgba(18, 48, 71, 0.7);
+}
+
+@media (max-width: 980px) {
+  .shareGrid {
+    grid-template-columns: 1fr;
+  }
+
+  .shareTitle {
+    max-width: none;
+  }
+}
+
+@media (max-width: 720px) {
+  .shareFrame {
+    width: min(100% - 20px, 1100px);
+    padding: 16px 0 24px;
+  }
+
+  .shareTopbar,
+  .shareSectionHead {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .shareHero,
+  .sharePhone,
+  .shareEmailPreview {
+    border-radius: 24px;
+  }
+
+  .shareHero,
+  .shareEmailPreview {
+    padding: 22px;
+  }
+
+  .shareDetails,
+  .sharePassMeta {
+    grid-template-columns: 1fr;
+  }
+
+  .shareMainButton {
+    width: 100%;
+    justify-content: center;
+  }
+
+  .sharePhone {
+    padding: 14px;
+  }
+
+  .shareDeviceGuide {
+    grid-template-columns: 1fr;
+  }
+
+  .shareDeviceGuide img {
+    max-height: 168px;
+    margin: 0 auto;
+  }
+
+  .sharePhoneFrame {
+    padding: 10px;
+    border-radius: 28px;
+  }
+
+  .sharePhoneScreen {
+    min-height: auto;
+    padding: 18px 16px 16px;
+  }
+
+  .shareDialog {
+    padding: 20px;
+    border-radius: 22px;
+  }
+
+  .shareDialogActions {
+    flex-direction: column;
+  }
+
+  .shareDialogButton {
+    width: 100%;
+  }
+}

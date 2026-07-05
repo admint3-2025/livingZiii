@@ -1,0 +1,92 @@
+/* Dashboard Styles */
+
+.dashboard {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+
+.dashboard h1 {
+  font-size: 28px;
+  font-weight: 700;
+  color: var(--text-color);
+  margin: 0;
+  letter-spacing: -0.02em;
+}
+
+.dashboard-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 16px;
+}
+
+.card {
+  background: rgba(255, 255, 255, 0.82);
+  padding: 20px;
+  border-radius: 16px;
+  border: 1px solid rgba(2, 6, 23, 0.10);
+  box-shadow: 0 20px 50px rgba(2, 6, 23, 0.08);
+  transition: transform 120ms ease, box-shadow 120ms ease, border-color 120ms ease;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.card:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 28px 70px rgba(2, 6, 23, 0.12);
+  border-color: rgba(13, 184, 188, 0.32);
+}
+
+.card h3 {
+  font-size: 14px;
+  font-weight: 600;
+  color: var(--text-muted);
+  text-transform: uppercase;
+  margin: 0;
+}
+
+.stat-number {
+  font-size: 32px;
+  font-weight: 700;
+  color: rgba(2, 6, 23, 0.88);
+  margin: 8px 0;
+  letter-spacing: -0.02em;
+}
+
+.card .link {
+  color: var(--primary-color);
+  font-size: 14px;
+  font-weight: 600;
+  margin-top: 8px;
+}
+
+.recent-activity {
+  background: rgba(255, 255, 255, 0.82);
+  padding: 20px;
+  border-radius: 16px;
+  border: 1px solid rgba(2, 6, 23, 0.10);
+  box-shadow: 0 20px 50px rgba(2, 6, 23, 0.06);
+}
+
+.recent-activity h2 {
+  font-size: 18px;
+  font-weight: 700;
+  color: var(--text-color);
+  margin: 0 0 16px 0;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .dashboard h1 {
+    font-size: 24px;
+  }
+
+  .dashboard-grid {
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  }
+
+  .stat-number {
+    font-size: 24px;
+  }
+}

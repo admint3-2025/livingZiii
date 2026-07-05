@@ -1,0 +1,35 @@
+{
+  "name": "ziii-living",
+  "version": "0.1.0",
+  "description": "SaaS platform for condominium and community administration",
+  "private": true,
+  "workspaces": [
+    "apps/backend",
+    "apps/web",
+    "apps/mobile",
+    "packages/shared"
+  ],
+  "scripts": {
+    "dev": "npm run dev -w apps/backend & npm run dev -w apps/web",
+    "dev:backend": "npm run dev -w apps/backend",
+    "dev:web": "npm run dev -w apps/web",
+    "dev:mobile": "npm run dev -w apps/mobile",
+    "build": "npm run build -w apps/backend && npm run build -w apps/web && npm run build -w apps/mobile",
+    "build:backend": "npm run build -w apps/backend",
+    "build:web": "npm run build -w apps/web",
+    "build:mobile": "npm run build -w apps/mobile",
+    "lint": "npm run lint -w apps/backend && npm run lint -w apps/web",
+    "test": "npm run test -w apps/backend",
+    "docker:up": "docker compose -f infrastructure/docker/docker-compose.yml up -d",
+    "docker:down": "docker compose -f infrastructure/docker/docker-compose.yml down",
+    "db:migrate": "npm run db:migrate -w apps/backend",
+    "install:legacy": "npm install --legacy-peer-deps"
+  },
+  "devDependencies": {
+    "@typescript-eslint/eslint-plugin": "^6.0.0",
+    "@typescript-eslint/parser": "^6.0.0",
+    "eslint": "^8.0.0",
+    "prettier": "^3.0.0",
+    "typescript": "^5.0.0"
+  }
+}

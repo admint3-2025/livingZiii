@@ -1,0 +1,132 @@
+.accessTableToolbar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  padding: 14px 18px 10px;
+  border-bottom: 1px solid rgba(2, 6, 23, 0.08);
+  background: linear-gradient(180deg, rgba(248, 250, 252, 0.94), rgba(255, 255, 255, 0.85));
+}
+
+.accessTableTitle {
+  font-size: 14px;
+  font-weight: 800;
+  color: rgba(15, 23, 42, 0.92);
+}
+
+.accessTableMeta {
+  margin-top: 3px;
+  font-size: 12px;
+  color: rgba(15, 23, 42, 0.52);
+}
+
+.accessTableActions {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  flex-wrap: wrap;
+}
+
+.accessInvitationsTable th,
+.accessInvitationsTable td {
+  vertical-align: middle;
+}
+
+.accessInvitationsTable th {
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  color: rgba(15, 23, 42, 0.62);
+}
+
+.accessInvitationsTable td {
+  font-size: 13px;
+  color: rgba(15, 23, 42, 0.9);
+}
+
+.accessCheckboxCol {
+  width: 44px;
+  text-align: center;
+}
+
+.accessCheckboxCol input {
+  width: 15px;
+  height: 15px;
+  accent-color: #0ea5e9;
+  cursor: pointer;
+}
+
+.accessVisitorCell,
+.accessUnitCell,
+.accessValidityCell {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.accessRowSubline {
+  font-size: 11px;
+  line-height: 1.35;
+}
+
+.accessStatusBadge {
+  border-radius: 999px;
+  padding: 5px 9px;
+  font-size: 11px;
+  font-weight: 700;
+}
+
+.accessActionGrid {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+  min-width: 360px;
+}
+
+.accessMiniButton {
+  min-height: 32px;
+  padding: 6px 10px;
+  border-radius: 10px;
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.01em;
+  line-height: 1;
+}
+
+.accessDangerButton {
+  border-color: rgba(220, 38, 38, 0.18);
+  color: rgba(153, 27, 27, 0.88);
+  background: rgba(254, 242, 242, 0.92);
+}
+
+.accessDangerButton:hover:not(:disabled) {
+  background: rgba(254, 226, 226, 0.98);
+}
+
+@media (max-width: 900px) {
+  .accessTableToolbar {
+    align-items: flex-start;
+    flex-direction: column;
+  }
+
+  .accessActionGrid {
+    min-width: 260px;
+  }
+}
+
+@media (max-width: 640px) {
+  .accessInvitationsTable th,
+  .accessInvitationsTable td {
+    font-size: 12px;
+  }
+
+  .accessActionGrid {
+    min-width: 220px;
+  }
+
+  .accessMiniButton {
+    flex: 1 1 calc(50% - 6px);
+    justify-content: center;
+  }
+}
