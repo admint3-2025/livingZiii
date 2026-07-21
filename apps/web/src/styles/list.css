@@ -34,6 +34,35 @@
   align-items: center;
 }
 
+.statsGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(170px, 1fr));
+  gap: 12px;
+}
+
+.statCard {
+  border-radius: 14px;
+  border: 1px solid rgba(2, 6, 23, 0.1);
+  background: rgba(255, 255, 255, 0.82);
+  padding: 14px;
+  box-shadow: 0 10px 22px rgba(2, 6, 23, 0.08);
+}
+
+.statLabel {
+  font-size: 12px;
+  font-weight: 700;
+  text-transform: uppercase;
+  color: rgba(2, 6, 23, 0.58);
+  letter-spacing: 0.03em;
+}
+
+.statValue {
+  margin-top: 6px;
+  font-size: 24px;
+  font-weight: 900;
+  letter-spacing: -0.02em;
+}
+
 .panel {
   border-radius: 16px;
   border: 1px solid rgba(2, 6, 23, 0.10);
